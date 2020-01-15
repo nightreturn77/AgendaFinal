@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Product Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Agenda</h1>
+    <a href="new">Cadastre </a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Endereco</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="agenda : ${listAgenda}">
+            	<td th:text="${agenda.id}">ID do registro</td>
+                <td th:text="${agenda.nome}">Nome</td>
+                <td th:text="${agenda.email}">Email</td>
+                <td th:text="${agenda.telefone}">Telefone</td>
+                <td th:text="${agenda.endereco}">Endereco</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${agenda.id}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${agenda.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>
