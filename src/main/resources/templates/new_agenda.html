@@ -4,36 +4,47 @@
 <head>
 <meta charset="utf-8" />
 <title>Gerar novo registro</title>
+<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
 <body>
 	<div align="center">
 		<h1>Novo registro!</h1>
-		<br />
+		<div class="container">
 		<form action="#" th:action="@{/save}" th:object="${agenda}"
 			method="post">
 
 			<table border="0" cellpadding="10">
 				<tr>
+				<div class="form-group">
 					<td>Nome:</td>
-					<td><input type="text" th:field="*{nome}" /></td>
+					<td><input class="form-control" type="text" th:field="*{nome}" /></td>
+					</div>
 				</tr>
 				<tr>
+				<div>
 					<td>Email:</td>
-					<td><input type="text" th:field="*{email}" /></td>
+					<td><input class="form-control" type="text" th:field="*{email}" /></td>
+					</div>
 				</tr>
+				
 				<tr>
+				<div>
 					<td>Telefone:</td>
-					<td><input type="text" th:field="*{telefone}" /></td>
+					<td><input class="form-control" type="text" th:field="*{telefone}" /></td>
+					</div>
 				</tr>
 				<tr>
+				<div>
 					<td>Endereco:</td>
-					<td><input type="text" th:field="*{endereco}" /></td>
+					<td><input class="form-control" type="text" th:field="*{endereco}" /></td>
+					</div>
 				</tr>								
 				<tr>
-					<td colspan="2"><button type="submit">Cadastrar</button> </td>
+					<td colspan="2"><button class="btn btn-secondary btn-lg" type="submit">Cadastrar</button> </td>
 				</tr>
 			</table>
 		</form>
+		</div>
 	</div>
 </body>
 </html>
