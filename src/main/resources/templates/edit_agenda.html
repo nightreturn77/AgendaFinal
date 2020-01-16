@@ -23,16 +23,16 @@
 				<tr>				
 					<td>Nome:</td>
 					<td>
-						<input type="text" th:field="*{nome}" />
+						<input maxlength="35" minlength="3"  type="text" th:field="*{nome}" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" />
 					</td>
 				</tr>
 				<tr>
 					<td>Email:</td>
-					<td><input type="text" th:field="*{email}" /></td>
+					<td><input type="text"  maxlength="32"th:field="*{email}" /></td>
 				</tr>
 				<tr>
 					<td>Telefone:</td>
-					<td><input type="text" th:field="*{telefone}" /></td>
+					<td><input type="text" minlength="10" maxlength="11" placeholder="ex:dd989898587" pattern="[0-9]+$" th:field="*{telefone}" /></td>
 				</tr>
 				<tr>
 					<td>Endereco:</td>
