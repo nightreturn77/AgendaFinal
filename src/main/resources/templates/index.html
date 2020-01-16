@@ -53,6 +53,18 @@
 		<a href="new"><button class="btn btn-secondary btn-lg">Cadastrar novo registro </button></a>
 		<a href="/json"><button class="btn btn-secondary btn-lg">JSON (TODOS) </button></a>
 	</div>
+	<script type="text/javascript">
+	var behavior = function (val) {
+	    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+	},
+	options = {
+	    onKeyPress: function (val, e, field, options) {
+	        field.mask(behavior.apply({}, arguments), options);
+	    }
+	};
+
+	$('.phone').mask(behavior, options);
+    </script>
 	<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 </body>
