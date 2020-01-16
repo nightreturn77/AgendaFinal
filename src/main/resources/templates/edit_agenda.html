@@ -7,39 +7,50 @@
 <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
 <body>
-	<div align="center">
+	<div class="container" align="center">
 		<h1>Editar registro</h1>
 		<br />
 		<form action="#" th:action="@{/save}" th:object="${agenda}"
 			method="post">
 
-			<table border="0" cellpadding="10">
+			<table class="table" cellpadding="10">
 				<tr>				
 					<td>ID do Registro:</td>
 					<td>
-						<input type="text" th:field="*{id}" readonly="readonly" />
+						<input class="form-control" type="text" th:field="*{id}" readonly="readonly" />
 					</td>
 				</tr>			
-				<tr>				
+				<tr>		
+				<div class="form-group">		
 					<td>Nome:</td>
 					<td>
-						<input maxlength="35" minlength="3"  type="text" th:field="*{nome}" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" />
+						<input class="form-control" maxlength="35" minlength="3"  type="text" th:field="*{nome}" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" />
+					
 					</td>
+					</div>
 				</tr>
 				<tr>
+				<div>
 					<td>Email:</td>
-					<td><input type="text"  maxlength="32"th:field="*{email}" /></td>
+					<td><input class="form-control" type="text"  maxlength="32"th:field="*{email}" /></td>
+				</div>
 				</tr>
+				
 				<tr>
+				<div>
 					<td>Telefone:</td>
-					<td><input type="text" minlength="10" maxlength="11" placeholder="ex:dd989898587" pattern="[0-9]+$" th:field="*{telefone}" /></td>
+					<td><input  class="form-control" type="text" minlength="10" maxlength="11" placeholder="ex:dd989898587" pattern="[0-9]+$" th:field="*{telefone}" /></td>
+				</div>
 				</tr>
+				
 				<tr>
+				<div>
 					<td>Endereco:</td>
-					<td><input type="text" th:field="*{endereco}" /></td>
+					<td><input  class="form-control" type="text" th:field="*{endereco}" /></td>
+					</div>
 				</tr>								
 				<tr>
-					<td colspan="2"><button type="submit">Salvar</button> </td>
+					<td colspan="2"><button  class="btn btn-secondary btn-lg" type="submit">Salvar</button> </td>
 				</tr>
 			</table>
 		</form>
