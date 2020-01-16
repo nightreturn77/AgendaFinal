@@ -3,17 +3,21 @@ package com.webhostapp.caselliti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.webhostapp.caselliti.entities.Agenda;
+import com.webhostapp.caselliti.repositories.AgendaRepository;
 import com.webhostapp.caselliti.services.AgendaService;
 
 
@@ -24,8 +28,10 @@ public class AgendaController {
 	@Autowired
 	private AgendaService service; 
 	
+	@Autowired
+	private AgendaRepository repository;
 	
-	//Metodo para abrir a home page da aplicação
+	//Metodo para abrir a home page da aplicação. A home page da aplicação já vem com uma lista
 	@RequestMapping("/")
 	public String index(Model model) {
 		List<Agenda> listAgenda = service.listAll();
@@ -76,7 +82,7 @@ public class AgendaController {
 	
 	//metodo para retornar o json de todos os registros
 	@RequestMapping("/json")
-	public ResponseEntity<List<Agenda>> buscarTodos(){ 
+	public ResponseEntity<List<Agenda>> buscarTodos(Pageable pageable){ 
 		List<Agenda> list = service.listAll();
 		return ResponseEntity.ok().body(list);
 	}
@@ -88,5 +94,11 @@ public class AgendaController {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	//@PostMapping("**/pesquisarAgenda")
+	//public ModelAndView pesquisar(@RequestParam("nomepesquisa") String nomepesquisa) { 
+	//ModelAndView modelAndView = new ModelAndView("index");
+//modelAndView.addObject("ListAgenda", repository.findAgendaByName(nomepesquisa));
+	//return modelAndView;
+	//}
 	
 }

@@ -41,4 +41,8 @@ public class AgendaService {
 		return obj.get();
 	}
 	*/
+	/*
+	public List<Agenda> findAgendaByName(String nome){
+		return repo.findAgendaByName(nome);
+	}*/
 }
